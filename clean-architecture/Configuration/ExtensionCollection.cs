@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
-namespace clean_architecture
+namespace clean_architecture.Configuration
 {
     public static class ExtensionCollection
     {
@@ -22,11 +22,11 @@ namespace clean_architecture
                 context.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
             });
         }
-        
+
         public static IServiceCollection HandleRequiredService(this IServiceCollection service)
         {
             var serviceProvider = service.BuildServiceProvider();
-            using(var scope = serviceProvider.CreateScope())
+            using (var scope = serviceProvider.CreateScope())
             {
                 var provider = scope.ServiceProvider;
                 var dbContext = provider.GetRequiredService<AppDBContext>();
@@ -36,6 +36,12 @@ namespace clean_architecture
                 DbInitializer.InitSeedingDataMigration(dbContext, serviceProvider).Wait();
                 return service;
             }
+        }
+
+        public static IServiceCollection AddApplication(this IServiceCollection service)
+        {
+
+            return service;
         }
     }
 }

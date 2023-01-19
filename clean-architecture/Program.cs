@@ -1,4 +1,4 @@
-using clean_architecture;
+using clean_architecture.Configuration;
 using Microsoft.Extensions.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,12 +10,12 @@ var configuration = new ConfigurationBuilder().SetBasePath(path)
                     .AddJsonFile($"appsettings.{environmentName}.json", false, true)
                     .Build();
 
-
 // Add services to the container.
 builder.Services
     .ConfigureIISIntegration(configuration)
     .ConfigDBContext(configuration)
-    .HandleRequiredService();
+    .HandleRequiredService()
+    .AddApplication();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
