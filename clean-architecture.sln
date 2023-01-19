@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33122.133
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "clean-architecture", "clean-architecture\clean-architecture.csproj", "{FC7ABEA9-41B6-4BB5-BF50-0E758ED5601F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clean-architecture", "clean-architecture\Clean-architecture.csproj", "{FC7ABEA9-41B6-4BB5-BF50-0E758ED5601F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppDbContext", "AppDbContext\AppDbContext.csproj", "{9606BCC8-E434-45B5-BFA9-3D50BBF89982}"
 EndProject
@@ -11,11 +11,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entiti
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{DE50D641-B5EC-43F3-B9BA-59B73ED21412}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{0F6517AE-8AC3-479E-868B-8A7526B4B890}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{C903A50D-A8B8-44AE-98EE-8E1E32596D25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bussiness", "Bussiness\Bussiness.csproj", "{97493396-17E0-454B-B82E-5C74F94CE279}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "Bussiness\Service.csproj", "{97493396-17E0-454B-B82E-5C74F94CE279}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,10 +37,6 @@ Global
 		{DE50D641-B5EC-43F3-B9BA-59B73ED21412}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE50D641-B5EC-43F3-B9BA-59B73ED21412}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE50D641-B5EC-43F3-B9BA-59B73ED21412}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0F6517AE-8AC3-479E-868B-8A7526B4B890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0F6517AE-8AC3-479E-868B-8A7526B4B890}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0F6517AE-8AC3-479E-868B-8A7526B4B890}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0F6517AE-8AC3-479E-868B-8A7526B4B890}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C903A50D-A8B8-44AE-98EE-8E1E32596D25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C903A50D-A8B8-44AE-98EE-8E1E32596D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C903A50D-A8B8-44AE-98EE-8E1E32596D25}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,9 +1,23 @@
+using clean_architecture;
+using Microsoft.Extensions.Configuration;
+
 var builder = WebApplication.CreateBuilder(args);
 
+var path = Directory.GetCurrentDirectory();
+var environmentName = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production";
+var configuration = new ConfigurationBuilder().SetBasePath(path)
+                    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+                    .AddJsonFile($"appsettings.{environmentName}.json", false, true)
+                    .Build();
+
+
 // Add services to the container.
+builder.Services
+    .ConfigureIISIntegration(configuration)
+    .ConfigDBContext(configuration)
+    .HandleRequiredService();
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
