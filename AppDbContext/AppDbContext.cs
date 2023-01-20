@@ -1,5 +1,6 @@
 ﻿using Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace AppDbContext
 {
@@ -11,7 +12,6 @@ namespace AppDbContext
         public DbSet<UserRole> UserRole { get; set; }
         public DbSet<Category> Category { get; set; }
         public DbSet<Product> Product { get; set; }
-
         public AppDBContext(DbContextOptions options) : base(options)
         {
         }

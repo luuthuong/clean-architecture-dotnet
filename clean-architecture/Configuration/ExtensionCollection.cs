@@ -1,5 +1,8 @@
 ﻿using AppDbContext;
+using Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Serilog;
 
 namespace clean_architecture.Configuration
@@ -17,10 +20,24 @@ namespace clean_architecture.Configuration
 
         public static IServiceCollection ConfigDBContext(this IServiceCollection service, IConfiguration configuration)
         {
-            return service.AddDbContext<AppDBContext>(context =>
+            service.AddDbContext<AppDBContext>(context =>
             {
                 context.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
-            });
+            })
+             .AddIdentity<User, Role>(config =>
+            {
+                config.Password = new PasswordOptions
+                {
+                    RequiredLength = 3,
+                    RequireLowercase = false,
+                    RequireDigit = false,
+                    RequireNonAlphanumeric = false,
+                    RequireUppercase = false
+                };
+            })
+             .AddEntityFrameworkStores<AppDBContext>()
+             .AddDefaultTokenProviders();
+            return service;
         }
 
         public static IServiceCollection HandleRequiredService(this IServiceCollection service)

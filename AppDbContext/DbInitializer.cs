@@ -18,7 +18,7 @@ namespace AppDbContext
             var notExecuteDataSeedingMigration = dataSeedMigration.Where(x => !keyHistory.Contains(x.Key)).ToList();
             foreach (var item in notExecuteDataSeedingMigration)
             {
-                await item.ExecuteAsync(dbContext, serviceProvider);
+                await item.UpAsync(dbContext, serviceProvider);
             }
         }
     }
